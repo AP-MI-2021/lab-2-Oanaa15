@@ -68,34 +68,36 @@ def test_is_palindrome():
     assert is_palindrome(77) == True
     assert is_palindrome(26) == False
 
+def main():
+    shouldRun = True
+    while shouldRun:
+        print("1. transformare din baza 2 in baza 16")
+        print("2. Combinari de n luate cate k")
+        print("3. Verifica daca un numar este palindrom")
 
-shouldRun = True
-while shouldRun:
-    print("1. transformare din baza 2 in baza 16")
-    print("2. Combinari de n luate cate k")
-    print("3. Verifica daca un numar este palindrom")
+        optiune = input("Dati optiunea: ")
+        if optiune == "1":
+            test_get_base_16_from_2()
+            a = int(input("Dati numar: "))
 
-    optiune = input("Dati optiunea: ")
-    if optiune == "1":
-        test_get_base_16_from_2()
-        a = int(input("Dati numar: "))
+            print(get_base_16_from_2(a))
+        elif optiune == "2":
+            test_get_n_choose_k()
+            n = int(input("Dati un nr."))
+            k = int(input("Dati un nr."))
 
-        print(get_base_16_from_2(a))
-    elif optiune == "2":
-        test_get_n_choose_k()
-        n = int(input("Dati un nr."))
-        k = int(input("Dati un nr."))
+            print(get_n_chose_k(n, k))
+        elif optiune == "3":
+            test_is_palindrome()
+            nr = int(input("Dati numar: "))
+            print(is_palindrome(nr))
 
-        print(get_n_chose_k(n, k))
-    elif optiune == "3":
-        test_is_palindrome()
-        nr = int(input("Dati numar: "))
-        print(is_palindrome(nr))
-
-    elif optiune == "x":
-        shouldRun = False
-    else:
-        print("Optiune gresita! Reincercati!")
+        elif optiune == "x":
+            shouldRun = False
+        else:
+            print("Optiune gresita! Reincercati!")
+if __name__ == '__main__':
+  main()
 
 
 
