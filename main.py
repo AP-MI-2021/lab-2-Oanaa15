@@ -21,7 +21,8 @@ def get_base_16_from_2(n):
 
 def test_get_base_16_from_2():
     assert get_base_16_from_2(111) == 7
-
+    assert get_base_16_from_2(1000) == 8
+    assert get_base_16_from_2(1001) == 9
 
 
 def get_n_chose_k(n, k):
@@ -47,10 +48,32 @@ def test_get_n_choose_k():
     assert get_n_chose_k(3, 2) == 3
     assert get_n_chose_k(3, 0) == 1
 
+def is_palindrome(n):
+    '''
+    verifica daca un numar e palindrom
+    :param n: nr. intreg
+    :return: True daca nr. e palindrom sau False in caz contrar
+    '''
+    copie=n
+    og=0
+    while copie != 0:
+        og = og *10 + copie%10
+        copie = copie//10
+    if n == og:
+        return True
+    return False
+
+def test_is_palindrome():
+    assert is_palindrome(121) == True
+    assert is_palindrome(77) == True
+    assert is_palindrome(26) == False
+
+
 shouldRun = True
 while shouldRun:
     print("1. transformare din baza 2 in baza 16")
     print("2. Combinari de n luate cate k")
+    print("3. Verifica daca un numar este palindrom")
 
     optiune = input("Dati optiunea: ")
     if optiune == "1":
@@ -64,6 +87,11 @@ while shouldRun:
         k = int(input("Dati un nr."))
 
         print(get_n_chose_k(n, k))
+    elif optiune == "3":
+        test_is_palindrome()
+        nr = int(input("Dati numar: "))
+        print(is_palindrome(nr))
+
     elif optiune == "x":
         shouldRun = False
     else:
